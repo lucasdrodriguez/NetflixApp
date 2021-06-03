@@ -11,12 +11,13 @@ using NetflixCore;
 
 namespace NetflixUI
 {
-    public partial class Login : Form
+    public partial class Login : Template
     {
 
-        public Login()
+        public Login():base()
         {
             InitializeComponent();
+
         }
 
         private void Login_Load(object sender, EventArgs e)

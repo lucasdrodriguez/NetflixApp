@@ -12,12 +12,10 @@ namespace NetflixCore.Catalogo
         protected int cantidadReproducciones;
         protected List<Celebridad> elenco;
 
-
         private Show()
         {
             cantidadReproducciones = 0;
             genero = new List<EGenero>();
-
         }
 
 

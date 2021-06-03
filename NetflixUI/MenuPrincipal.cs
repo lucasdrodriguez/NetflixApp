@@ -11,12 +11,12 @@ using NetflixCore;
 
 namespace NetflixUI
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuPrincipal : Template
     {
 
         string usuario;
 
-        public MenuPrincipal()
+        public MenuPrincipal():base()
         {
             InitializeComponent();
         }
@@ -35,10 +35,10 @@ namespace NetflixUI
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            
             comboBox1.DataSource = Enum.GetValues(typeof(EGenero));
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-
+            comboBox1.Text = "Seleccionar Genero";
 
         }
 

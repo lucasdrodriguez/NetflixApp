@@ -10,7 +10,6 @@ namespace NetflixCore.Catalogo
 
         public Peliculas(string nomb, string descripcion, int duracion, List<Celebridad> elencoShow, List<EGenero> generos) : base(nomb, descripcion, elencoShow, generos)
         {
-         
             this.duracionMin = duracion;
         }
 

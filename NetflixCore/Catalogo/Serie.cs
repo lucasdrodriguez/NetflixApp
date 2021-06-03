@@ -22,13 +22,6 @@ namespace NetflixCore.Catalogo
         {
             get
             {
-                #region Como se usaria esto en el program?
-                //Serie miSerie = new Serie();
-
-                //Temporada unaTemporada = miSerie[1];
-                //Temporada unatemo2 = miSerie.listaTemporadas[1];
-                #endregion
-            
                 if (this.temporadas.Count >= numeroTemporada && numeroTemporada !=0)
                 {
                     return this.temporadas[numeroTemporada - 1];
