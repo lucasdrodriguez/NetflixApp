@@ -97,7 +97,6 @@ namespace NetflixCore
       
         public static bool LogearUsuario(string user, string contra)
         {
-            return true;
             if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(contra))
                 foreach (Usuario item in usuariosRegistrados)
                 {
