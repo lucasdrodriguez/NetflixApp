@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Catalogo\Capitulo.cs" />
     <Compile Include="CoreDelSistema.cs" />
+    <Compile Include="NetflixException.cs" />
     <Compile Include="Personas\Celebridad.cs" />
     <Compile Include="Enumerados.cs" />
     <Compile Include="Catalogo\Peliculas.cs" />

@@ -9,6 +9,8 @@ namespace NetflixCore
     public static class CoreDelSistema
     {
 
+        static List<string> test;
+
         static List<Show> catalogoDisponible;
         static List<Usuario> usuariosRegistrados;
 
@@ -90,36 +92,45 @@ namespace NetflixCore
         private static void CargarUsuarios()
         {
             usuariosRegistrados.Add(new Usuario("Lucas@lucas.com", "megustaelte123", "Lucas", "Rodriguez", EPais.Argentina));
-            usuariosRegistrados.Add(new Usuario("pepe@pepe.com", "rufruf123", "Pepe", "Peposo", EPais.Polonia));
+            usuariosRegistrados.Add(new Usuario("pepe@pepe.com", "RUFruf123", "Pepe", "Peposo", EPais.Polonia));
 
         }
 
-      
-        public static bool LogearUsuario(string user, string contra)
+
+        private static bool ValidarCamposIngresados(string user, string contra)
         {
-            if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(contra))
-                foreach (Usuario item in usuariosRegistrados)
-                {
+            test[0] = "pepe";
 
-                    if (item.Email.Trim().ToLower() == user.Trim().ToLower()
-                        && item.Contrasenia.Trim() == contra.Trim())
-                    {
-                        return true;
-                    }
-
-                }
-            else
+            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(contra))
             {
-                throw new NullReferenceException();
+                /// intento de conexion con la base de datos  
+                throw new NetflixException("");
             }
 
-            return false;
+            return true;
+        }
+
+        public static bool LogearUsuario(string user, string contra)
+        {
+          
+                if (ValidarCamposIngresados(user, contra))
+                {
+                    foreach (Usuario item in usuariosRegistrados)
+                    {
+                        if (item.Email.Trim().ToLower() == user.Trim().ToLower()
+                            && item.Contrasenia.Trim() == contra.Trim())
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+
+         
         }
 
         public static bool RegistrarUsuario(string correo, string contra)
         {
-         
-
             return false;
         }
 

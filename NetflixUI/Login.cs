@@ -14,7 +14,7 @@ namespace NetflixUI
     public partial class Login : Template
     {
 
-        public Login():base()
+        public Login() : base()
         {
             InitializeComponent();
 
@@ -23,7 +23,7 @@ namespace NetflixUI
         private void Login_Load(object sender, EventArgs e)
         {
             this.tb_usuario.Text = "";
-            this.tb_contrasenia.Text="";
+            this.tb_contrasenia.Text = "";
             this.btn_iniciar.Text = "Inicial Sesion";
             this.ControlBox = false;
             this.tb_contrasenia.UseSystemPasswordChar = true;
@@ -32,19 +32,28 @@ namespace NetflixUI
 
         private void btn_iniciar_Click(object sender, EventArgs e)
         {
-          
-            if ( CoreDelSistema.LogearUsuario(this.tb_usuario.Text, this.tb_contrasenia.Text))
+            try
             {
-                MenuPrincipal principal = new MenuPrincipal(); 
-                principal.UsuarioLogueado = this.tb_usuario.Text; 
-                principal.Show();
+                if (CoreDelSistema.LogearUsuario(this.tb_usuario.Text, this.tb_contrasenia.Text))
+                {
+                    MenuPrincipal principal = new MenuPrincipal();
+                    principal.UsuarioLogueado = this.tb_usuario.Text;
+                    principal.Show();
 
-                this.Hide();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrecta");
+                }
             }
-            else
+            catch (Exception ex )
             {
-                MessageBox.Show("Usuario o contraseña incorrecta");
+
+                this.lb_error.Text = ex.Message;
+    
             }
+
 
         }
 
