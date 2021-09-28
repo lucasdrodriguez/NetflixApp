@@ -34,7 +34,6 @@ namespace NetflixUI
             this.btn_iniciar = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_registrarse = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.lb_error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -46,7 +45,7 @@ namespace NetflixUI
             this.tb_usuario.ForeColor = System.Drawing.Color.White;
             this.tb_usuario.Location = new System.Drawing.Point(252, 143);
             this.tb_usuario.Name = "tb_usuario";
-            this.tb_usuario.Size = new System.Drawing.Size(195, 19);
+            this.tb_usuario.Size = new System.Drawing.Size(195, 23);
             this.tb_usuario.TabIndex = 0;
             // 
             // tb_contrasenia
@@ -57,7 +56,7 @@ namespace NetflixUI
             this.tb_contrasenia.ForeColor = System.Drawing.Color.White;
             this.tb_contrasenia.Location = new System.Drawing.Point(252, 185);
             this.tb_contrasenia.Name = "tb_contrasenia";
-            this.tb_contrasenia.Size = new System.Drawing.Size(195, 19);
+            this.tb_contrasenia.Size = new System.Drawing.Size(195, 23);
             this.tb_contrasenia.TabIndex = 1;
             // 
             // btn_iniciar
@@ -104,15 +103,6 @@ namespace NetflixUI
             this.btn_registrarse.UseVisualStyleBackColor = false;
             this.btn_registrarse.Click += new System.EventHandler(this.btn_registrarse_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(271, 383);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
-            // 
             // lb_error
             // 
             this.lb_error.AutoSize = true;
@@ -120,7 +110,7 @@ namespace NetflixUI
             this.lb_error.ForeColor = System.Drawing.Color.Snow;
             this.lb_error.Location = new System.Drawing.Point(297, 363);
             this.lb_error.Name = "lb_error";
-            this.lb_error.Size = new System.Drawing.Size(0, 22);
+            this.lb_error.Size = new System.Drawing.Size(0, 42);
             this.lb_error.TabIndex = 6;
             // 
             // Login
@@ -130,7 +120,6 @@ namespace NetflixUI
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(698, 450);
             this.Controls.Add(this.lb_error);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_registrarse);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_iniciar);
@@ -138,6 +127,7 @@ namespace NetflixUI
             this.Controls.Add(this.tb_usuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
@@ -152,7 +142,6 @@ namespace NetflixUI
         private System.Windows.Forms.Button btn_iniciar;
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_registrarse;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lb_error;
     }
 }

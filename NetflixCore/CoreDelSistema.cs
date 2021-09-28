@@ -9,9 +9,9 @@ namespace NetflixCore
     public static class CoreDelSistema
     {
 
-        static List<string> test;
 
         static List<Show> catalogoDisponible;
+
         static List<Usuario> usuariosRegistrados;
 
         static CoreDelSistema()
@@ -26,15 +26,16 @@ namespace NetflixCore
 
         private static void CargarCatalogoInicial()
         {
-
             catalogoDisponible.Add(new Peliculas(
                                                  "Tomb Raider",
                                                  "la vida de una joven llamada Lara Croft,quien lo abandona todo y parte en busca de su padre," +
-                                                 "un aventurero que desapareció en una isla legendaria cerca de la costa de Japón. Allí encontrará mucho peligro",
+                                                 "un aventurero que desapareció en una isla legendaria cerca de la costa de Japón. " +
+                                                 "Allí encontrará mucho peligro",
                                                  122,
                                                  new List<Celebridad>()
                                                                     {
-                                                                    new Celebridad("Alicia", "Vikander", EPais.Suecia)
+                                                                    new Celebridad("Alicia", "Vikander", EPais.Suecia),
+                                                                    new Celebridad("pEPE","PEPOSO",EPais.Albania)
                                                                     },
                                                  new List<EGenero>() {
                                                                         EGenero.Aventuras,
@@ -43,8 +44,11 @@ namespace NetflixCore
                                                  )
                                   );
 
+
+
+
             catalogoDisponible.Add(new Peliculas("La liga de la justicia",
-                                                    " superheroes. Batman reune a un grupo de superherores para derrotar a los enemigos más terribles jamás enfrentados",
+                                                  "superheroes. Batman reune a un grupo de superherores para derrotar a los enemigos más terribles jamás enfrentados",
                                                     121,
                                                     new List<Celebridad>() {
                                                                              new Celebridad("Ben", "Affleck", EPais.Estados_Unidos),
@@ -86,7 +90,8 @@ namespace NetflixCore
                                                                   }
                                               )
                                 );
-        }
+
+        } // fin del metodo
 
 
         private static void CargarUsuarios()
@@ -99,35 +104,38 @@ namespace NetflixCore
 
         private static bool ValidarCamposIngresados(string user, string contra)
         {
-            test[0] = "pepe";
 
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(contra))
             {
-                /// intento de conexion con la base de datos  
-                throw new NetflixException("");
+
+                return false;
             }
 
             return true;
         }
 
-        public static bool LogearUsuario(string user, string contra)
+
+        public static Usuario LogearUsuario(string user, string contra)
         {
-          
-                if (ValidarCamposIngresados(user, contra))
+
+            if (ValidarCamposIngresados(user, contra))
+            {
+                foreach (Usuario item in usuariosRegistrados)
                 {
-                    foreach (Usuario item in usuariosRegistrados)
+                    if (item.Email.Trim().ToLower() == user.Trim().ToLower()
+                        && item.Contrasenia.Trim() == contra.Trim())
                     {
-                        if (item.Email.Trim().ToLower() == user.Trim().ToLower()
-                            && item.Contrasenia.Trim() == contra.Trim())
-                        {
-                            return true;
-                        }
+                        return item;
                     }
                 }
-                return false;
+            }
+            return null;
 
-         
+
         }
+
+
+
 
         public static bool RegistrarUsuario(string correo, string contra)
         {

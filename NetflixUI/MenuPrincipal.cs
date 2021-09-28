@@ -8,20 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetflixCore;
+using NetflixCore.Personas;
 
 namespace NetflixUI
 {
-    public partial class MenuPrincipal : Template
+    public partial class MenuPrincipal: Form
     {
 
-        string usuario;
+        Usuario usuario;
 
-        public MenuPrincipal():base()
+        public MenuPrincipal(Usuario aux)
         {
             InitializeComponent();
+            usuario = aux;
         }
 
-        public string UsuarioLogueado
+        public Usuario UsuarioLogueado
         {
             get
             {
@@ -35,6 +37,12 @@ namespace NetflixUI
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+
+            if(usuario is Celebridad)
+            {
+                comboBox1.Enabled = false;
+                comboBox1.Visible = false;
+            }
             
             comboBox1.DataSource = Enum.GetValues(typeof(EGenero));
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;

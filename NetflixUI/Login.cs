@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetflixCore;
+using NetflixCore.Personas;
+
 
 namespace NetflixUI
 {
-    public partial class Login : Template
+    public partial class Login : Form
     {
 
-        public Login() : base()
+        public Login()
         {
             InitializeComponent();
 
@@ -32,29 +34,21 @@ namespace NetflixUI
 
         private void btn_iniciar_Click(object sender, EventArgs e)
         {
-            try
+
+            Usuario aux = CoreDelSistema.LogearUsuario(this.tb_usuario.Text, this.tb_contrasenia.Text);
+
+            if (aux != null)
             {
-                if (CoreDelSistema.LogearUsuario(this.tb_usuario.Text, this.tb_contrasenia.Text))
-                {
-                    MenuPrincipal principal = new MenuPrincipal();
-                    principal.UsuarioLogueado = this.tb_usuario.Text;
-                    principal.Show();
+                MenuPrincipal principal = new MenuPrincipal(aux);
 
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Usuario o contraseña incorrecta");
-                }
+                principal.Show();
+
+                this.Hide();
             }
-            catch (Exception ex )
+            else
             {
-
-                this.lb_error.Text = ex.Message;
-    
+                MessageBox.Show("Usuario o contraseña incorrecta");
             }
-
-
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -64,7 +58,6 @@ namespace NetflixUI
 
         private void btn_registrarse_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
