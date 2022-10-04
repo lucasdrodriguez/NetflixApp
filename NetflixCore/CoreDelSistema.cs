@@ -114,13 +114,6 @@ namespace NetflixCore
         }
 
 
-
-
-        public static bool RegistrarUsuario(string correo, string contra)
-        {
-            return false;
-        }
-
         public static string MostrarUsuarios()
         {
             StringBuilder sb = new StringBuilder();

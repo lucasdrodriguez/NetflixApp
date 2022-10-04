@@ -101,7 +101,6 @@ namespace NetflixUI
             this.btn_registrarse.TabIndex = 4;
             this.btn_registrarse.Text = "Registrarse";
             this.btn_registrarse.UseVisualStyleBackColor = false;
-            this.btn_registrarse.Click += new System.EventHandler(this.btn_registrarse_Click);
             // 
             // lb_error
             // 
