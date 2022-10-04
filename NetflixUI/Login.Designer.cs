@@ -35,6 +35,7 @@ namespace NetflixUI
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_registrarse = new System.Windows.Forms.Button();
             this.lb_error = new System.Windows.Forms.Label();
+            this.btn_datosHardcodeados = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tb_usuario
@@ -64,7 +65,7 @@ namespace NetflixUI
             this.btn_iniciar.BackColor = System.Drawing.Color.Red;
             this.btn_iniciar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_iniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_iniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_iniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btn_iniciar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_iniciar.Location = new System.Drawing.Point(252, 246);
             this.btn_iniciar.Name = "btn_iniciar";
@@ -93,11 +94,11 @@ namespace NetflixUI
             this.btn_registrarse.BackColor = System.Drawing.Color.Red;
             this.btn_registrarse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_registrarse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_registrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_registrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btn_registrarse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_registrarse.Location = new System.Drawing.Point(291, 297);
             this.btn_registrarse.Name = "btn_registrarse";
-            this.btn_registrarse.Size = new System.Drawing.Size(120, 21);
+            this.btn_registrarse.Size = new System.Drawing.Size(120, 40);
             this.btn_registrarse.TabIndex = 4;
             this.btn_registrarse.Text = "Registrarse";
             this.btn_registrarse.UseVisualStyleBackColor = false;
@@ -112,12 +113,27 @@ namespace NetflixUI
             this.lb_error.Size = new System.Drawing.Size(0, 42);
             this.lb_error.TabIndex = 6;
             // 
+            // btn_datosHardcodeados
+            // 
+            this.btn_datosHardcodeados.BackColor = System.Drawing.Color.Red;
+            this.btn_datosHardcodeados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_datosHardcodeados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_datosHardcodeados.ForeColor = System.Drawing.Color.Snow;
+            this.btn_datosHardcodeados.Location = new System.Drawing.Point(241, 383);
+            this.btn_datosHardcodeados.Name = "btn_datosHardcodeados";
+            this.btn_datosHardcodeados.Size = new System.Drawing.Size(239, 35);
+            this.btn_datosHardcodeados.TabIndex = 7;
+            this.btn_datosHardcodeados.Text = "Datos Hardcodeados";
+            this.btn_datosHardcodeados.UseVisualStyleBackColor = false;
+            this.btn_datosHardcodeados.Click += new System.EventHandler(this.btn_datosHardcodeados_Click);
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::NetflixUI.Properties.Resources.FondoLogin;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(698, 450);
+            this.Controls.Add(this.btn_datosHardcodeados);
             this.Controls.Add(this.lb_error);
             this.Controls.Add(this.btn_registrarse);
             this.Controls.Add(this.btn_salir);
@@ -142,5 +158,6 @@ namespace NetflixUI
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_registrarse;
         private System.Windows.Forms.Label lb_error;
+        private System.Windows.Forms.Button btn_datosHardcodeados;
     }
 }

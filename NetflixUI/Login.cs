@@ -56,5 +56,10 @@ namespace NetflixUI
             this.Close();
         }
 
+        private void btn_datosHardcodeados_Click(object sender, EventArgs e)
+        {
+            this.tb_usuario.Text = "Lucas@lucas.com";
+            this.tb_contrasenia.Text = "megustaelte123";
+        }
     }
 }
