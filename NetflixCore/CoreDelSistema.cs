@@ -101,17 +101,34 @@ namespace NetflixCore
 
         }
 
+
+
+
+
         public static Usuario LogearUsuario(string user, string contra)
         {
             foreach (Usuario item in usuariosRegistrados)
             {
-                if (item.Email == user && item.Contrasenia == contra)
+                if (item.Email.ToLower() == user.ToLower() && item.Contrasenia == contra)
                 {
                     return item;
                 }
             }
             return null;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         public static string MostrarUsuarios()
