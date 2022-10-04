@@ -40,13 +40,13 @@ namespace NetflixUI
 
             if(usuario is Celebridad)
             {
-                comboBox1.Enabled = false;
-                comboBox1.Visible = false;
+                cbGenero.Enabled = false;
+                cbGenero.Visible = false;
             }
             
-            comboBox1.DataSource = Enum.GetValues(typeof(EGenero));
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.Text = "Seleccionar Genero";
+            cbGenero.DataSource = Enum.GetValues(typeof(EGenero));
+            cbGenero.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbGenero.Text = "Seleccionar Genero";
 
         }
 
