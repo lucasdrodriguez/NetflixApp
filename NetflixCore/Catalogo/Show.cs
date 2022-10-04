@@ -102,8 +102,6 @@ namespace NetflixCore.Catalogo
             return (show != celebridad);
         }
 
-
-
         public static bool operator +(List<Show> listaShow, Show show)
         {
 
@@ -116,12 +114,10 @@ namespace NetflixCore.Catalogo
             return false;
         }
 
-
         public static bool operator !=(List<Show> listaShow, Show show)
         {
             return !(listaShow == show);
         }
-
 
         public static bool operator ==(List<Show> listaShow, Show show)
         {

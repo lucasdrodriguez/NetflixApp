@@ -101,37 +101,16 @@ namespace NetflixCore
 
         }
 
-
-        private static bool ValidarCamposIngresados(string user, string contra)
-        {
-
-            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(contra))
-            {
-
-                return false;
-            }
-
-            return true;
-        }
-
-
         public static Usuario LogearUsuario(string user, string contra)
         {
-
-            if (ValidarCamposIngresados(user, contra))
+            foreach (Usuario item in usuariosRegistrados)
             {
-                foreach (Usuario item in usuariosRegistrados)
+                if (item.Email == user && item.Contrasenia == contra)
                 {
-                    if (item.Email.Trim().ToLower() == user.Trim().ToLower()
-                        && item.Contrasenia.Trim() == contra.Trim())
-                    {
-                        return item;
-                    }
+                    return item;
                 }
             }
             return null;
-
-
         }
 
 
