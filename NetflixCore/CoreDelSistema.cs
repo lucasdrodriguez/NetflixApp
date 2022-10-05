@@ -107,7 +107,7 @@ namespace NetflixCore
 
         public static Usuario LogearUsuario(string user, string contra)
         {
-            if (string.IsNullOrEmpty(user))
+            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(contra))
                 throw new ArgumentNullException();
 
             foreach (Usuario item in usuariosRegistrados)

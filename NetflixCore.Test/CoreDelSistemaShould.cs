@@ -24,12 +24,14 @@ namespace NetflixCore.Test
 
         }
 
-
+        [DataRow(null,"asd")]
+        [DataRow("asd",null)]
+        [DataRow("","")]
         [ExpectedException(typeof(ArgumentNullException))]
         [TestMethod]
-        public void DevolverExcepcionCuandoMailEsNull()
+        public void DevolverExcepcionCuandoMailOPassSonIncorrectos(string user,string pass)
         {
-            CoreDelSistema.LogearUsuario("asd", "asd123");
+            CoreDelSistema.LogearUsuario(user, pass);
         }
 
 
