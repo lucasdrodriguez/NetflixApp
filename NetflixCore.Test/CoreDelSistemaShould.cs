@@ -29,8 +29,7 @@ namespace NetflixCore.Test
         [TestMethod]
         public void DevolverExcepcionCuandoMailEsNull()
         {
-            CoreDelSistema.LogearUsuario(null, "asd123");
-
+            CoreDelSistema.LogearUsuario("asd", "asd123");
         }
 
 
