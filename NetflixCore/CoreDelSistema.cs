@@ -107,6 +107,9 @@ namespace NetflixCore
 
         public static Usuario LogearUsuario(string user, string contra)
         {
+            if (string.IsNullOrEmpty(user))
+                throw new ArgumentNullException();
+
             foreach (Usuario item in usuariosRegistrados)
             {
                 if (item.Email.ToLower() == user.ToLower() && item.Contrasenia == contra)
@@ -122,9 +125,26 @@ namespace NetflixCore
 
 
 
+        public static void Metodo1()
+        {
 
+            try
+            {
+                Metodo2();
+            }
+            catch (Exception)
+            {
 
+            }
+        }
 
+        private static void Metodo2()
+        {
+
+            int num1 = 0;
+
+            int result = 20 / num1;
+        }
 
 
 

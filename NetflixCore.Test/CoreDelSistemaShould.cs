@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,42 +11,42 @@ namespace NetflixCore.Test
     [TestClass]
     public class CoreDelSistemaShould
     {
-
+        [DataRow("error", "errorito")]
+        [DataRow("asdasd", "dasdsa")]
         [TestMethod]
-        public void DevolverNuloEnUserNoValido() 
+        public void DevolverNuloEnUserNoValido(string usuario, string pass)
         {
-            //GIVEN           ARRANGE
-            string userPrueba = "error";
-            string contraPrueba = "errorito";
             Usuario usuarioEsperado;
 
-            //WHEN            ACT
-
-            usuarioEsperado = CoreDelSistema.LogearUsuario(userPrueba, contraPrueba);
-
-            //THEN            ASSERT
+            usuarioEsperado = CoreDelSistema.LogearUsuario(usuario, pass);
 
             Assert.IsNull(usuarioEsperado);
 
         }
 
+
+        [ExpectedException(typeof(ArgumentNullException))]
         [TestMethod]
-        public void DevolverUserValido() 
+        public void DevolverExcepcionCuandoMailEsNull()
         {
-            //GIVEN           ARRANGE
-            string userPrueba = "LUCAS@lucas.com";
-            string contraPrueba = "megustaelte123";
+            CoreDelSistema.LogearUsuario(null, "asd123");
+
+        }
+
+
+        [DataRow("Lucas@lucas.com", "megustaelte123")]
+        [DataRow("LUCAS@lucas.COM", "megustaelte123")]
+        [TestMethod]
+        public void DevolverUserValido(string usuario, string pass)
+        {
             Usuario usuarioEsperado;
 
-            //WHEN            ACT
-
-            usuarioEsperado = CoreDelSistema.LogearUsuario(userPrueba, contraPrueba);
-
-            //THEN            ASSERT
+            usuarioEsperado = CoreDelSistema.LogearUsuario(usuario, pass);
 
             Assert.IsNotNull(usuarioEsperado);
-            Assert.AreEqual(usuarioEsperado.Email, userPrueba);
+            Assert.AreEqual(usuarioEsperado.Email.ToLower(), usuario.ToLower());
         }
+
 
     }
 }
